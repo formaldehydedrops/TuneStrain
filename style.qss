@@ -1,0 +1,39 @@
+QWidget {
+    background-color: #1a1a2e;
+    color: #eeeeee;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 14px;
+}
+
+QLabel#TitleLabel {
+    font-size: 24px;
+    font-weight: bold;
+    color: #c3aaff;
+    padding: 10px;
+}
+
+QLabel#FooterLabel {
+    font-size: 12px;
+    color: #666666;
+    padding: 8px;
+}
+
+QPushButton {
+    background: rgba(150, 100, 255, 0.25);
+    border: 1px solid rgba(150, 100, 255, 0.5);
+    border-radius: 14px;
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    transition: 0.3s ease-in-out;
+}
+
+QPushButton:hover {
+    background: rgba(150, 100, 255, 0.4);
+    border: 1px solid rgba(180, 120, 255, 0.7);
+}
+
+QPushButton:pressed {
+    background: rgba(150, 100, 255, 0.6);
+}
