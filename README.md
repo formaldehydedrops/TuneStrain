@@ -2,6 +2,8 @@
 
 Batch video to mp3 converter with a modern PyQt6 GUI
 
+![Main window](assets/screenshots/main.png)
+
 ## For users
 
 - Download the installer (`TuneStrainSetup.exe`) from [Releases](https://github.com/yourusername/TuneStrain/releases) and install.
@@ -60,7 +62,7 @@ Batch video to mp3 converter with a modern PyQt6 GUI
 
 - `main.py` — main GUI
 - `converter_module.py` — conversion logic
-- `assets/` — icons
+- `assets/` — icons and screenshots
 - `fonts/` — fonts
 - `style.qss` — dark theme styles
 - `TuneStrain.iss` — Inno Setup script
