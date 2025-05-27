@@ -6,7 +6,7 @@ Batch video to mp3 converter with a modern PyQt6 GUI
 
 ## For users
 
-- Download the installer (`TuneStrainSetup.exe`) from [Releases](https://github.com/yourusername/TuneStrain/releases) and install.
+- Download the installer (`TuneStrainSetup.exe`) from [Releases](https://github.com/formaldehydedrops/TuneStrain/releases) and install.
 - After installation, run TuneStrain from the Start menu or desktop shortcut.
 - **FFmpeg is built-in** — no extra installation required.
 
@@ -17,7 +17,7 @@ Batch video to mp3 converter with a modern PyQt6 GUI
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/yourusername/TuneStrain.git
+   git clone https://github.com/formaldehydedrops/TuneStrain.git
    cd TuneStrain
    ```
 
