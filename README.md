@@ -1,86 +1,71 @@
 # TuneStrain
 
-Пакетный конвертер видео в mp3 с красивым GUI на PyQt6
+Batch video to mp3 converter with a modern PyQt6 GUI
 
-## Для пользователей
+## For users
 
-- Просто скачайте установщик (TuneStrainSetup.exe) из [релизов](https://github.com/yourusername/TuneStrain/releases) и установите.
-- После установки можно запускать TuneStrain из меню Пуск или ярлыка на рабочем столе.
-- **FFmpeg уже встроен** — ничего дополнительно устанавливать не нужно.
+- Download the installer (`TuneStrainSetup.exe`) from [Releases](https://github.com/yourusername/TuneStrain/releases) and install.
+- After installation, run TuneStrain from the Start menu or desktop shortcut.
+- **FFmpeg is built-in** — no extra installation required.
 
-## Для разработчиков
+## For developers
 
-### Быстрый старт
+### Quick start
 
-1. Клонируйте репозиторий:
+1. Clone the repository:
+
    ```sh
    git clone https://github.com/yourusername/TuneStrain.git
    cd TuneStrain
    ```
-2. Установите зависимости:
+
+2. Install dependencies:
+
    ```sh
    pip install -r requirements.txt
    ```
-3. Убедитесь, что у вас установлен ffmpeg (или положите ffmpeg.exe рядом с main.py).
-4. Запустите:
+
+3. Make sure you have ffmpeg in your PATH or place `ffmpeg.exe` next to `main.py`.
+
+4. Run:
+
    ```sh
    python main.py
    ```
 
-### Сборка exe
+### Build exe
 
-1. Установите PyInstaller:
+1. Install PyInstaller:
+
    ```sh
    pip install pyinstaller
    ```
-2. Соберите exe:
+
+2. Build the executable:
+
    ```sh
-   pyinstaller --onefile --windowed --icon=assets/icon.ico --add-data "assets;assets" --add-data "style.qss;." --add-data "converter_module.py;." --hidden-import=moviepy --hidden-import=pydub main.py
+   pyinstaller --onefile --windowed --icon=assets/icon.ico --add-data "assets;assets" --add-data "style.qss;." --add-data "fonts;fonts" --hidden-import=moviepy --hidden-import=pydub main.py --name TuneStrain
    ```
-3. Положите ffmpeg.exe и ffprobe.exe в папку dist рядом с exe.
 
-### Сборка установщика (Inno Setup)
+3. Place `ffmpeg.exe` and `ffprobe.exe` in the `dist` folder next to the exe.
 
-1. Переименуйте main.exe → TuneStrain.exe (опционально).
-2. Используйте такой скрипт для Inno Setup:
+### Build the installer (Inno Setup)
 
-```iss
-[Setup]
-AppName=TuneStrain
-AppVersion=1.0
-DefaultDirName={pf}\TuneStrain
-DefaultGroupName=TuneStrain
-UninstallDisplayIcon={app}\TuneStrain.exe
-OutputBaseFilename=TuneStrainSetup
-SetupIconFile=assets\icon.ico
-Compression=lzma
-SolidCompression=yes
-
-[Files]
-Source: "dist\\TuneStrain.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "dist\\ffmpeg.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "dist\\ffprobe.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "dist\\style.qss"; DestDir: "{app}"; Flags: ignoreversion
-Source: "assets\\*"; DestDir: "{app}\\assets"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "converted\\*"; DestDir: "{app}\\converted"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "output\\*"; DestDir: "{app}\\output"; Flags: ignoreversion recursesubdirs createallsubdirs
-
-[Icons]
-Name: "{group}\\TuneStrain"; Filename: "{app}\\TuneStrain.exe"; WorkingDir: "{app}"
-
-[Run]
-Filename: "{app}\\TuneStrain.exe"; Description: "Запустить TuneStrain"; Flags: nowait postinstall skipifsilent
-```
+1. Open `TuneStrain.iss` in Inno Setup Compiler.
+2. Build the installer. The script will include all required resources.
 
 ---
 
-## Структура проекта
-- `main.py` — основной GUI
-- `converter_module.py` — функции конвертации
-- `assets/` — иконки, шрифты, ffmpeg (если нужно)
-- `style.qss` — стили для тёмной темы
-- `requirements.txt` — зависимости для разработки
+## Project structure
+
+- `main.py` — main GUI
+- `converter_module.py` — conversion logic
+- `assets/` — icons
+- `fonts/` — fonts
+- `style.qss` — dark theme styles
+- `TuneStrain.iss` — Inno Setup script
+- `requirements.txt` — Python dependencies
 
 ---
 
-**Вопросы и баги** — пишите в Issues на GitHub!
+**Questions and Bugs:** Please use GitHub Issues!
